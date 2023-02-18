@@ -1,27 +1,17 @@
 package by.teachmeskills.homeworks.hw_17022023;
-import java.util.Arrays;
-
 public class HWToothArray {
     public static void main(String[] args) {
-        int nCntRow = 5;
-        int nCntCol;
-        int nVar;
+        int[][] array = new int[5][];
 
-        int[][] aMas = new int[nCntRow][];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = new int[(int) (Math.random() * 11)];
 
-        for (int i=0;i<nCntRow;i++){
-            nCntCol  = (int) (Math.random() * 11) ;
-            aMas[i] = new int[nCntCol];
-            System.out.println("Кол-во элементов "+nCntCol);
-            for (int j=0; j < nCntCol; j++){
-                nVar = ((int)(Math.random() * 12) - 15);
-                System.out.print(nVar + " : ");
-                aMas[i][j] = nVar;
-                }
+            System.out.println("Кол-во элементов " + array[i].length);
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = ((int) (Math.random() * 12) - 15);
+                System.out.print(array[i][j] + " : ");
+            }
             System.out.println();
         }
-
-
-
     }
 }
