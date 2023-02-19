@@ -14,14 +14,14 @@ public class HWLesson4Class {
         System.out.println("Ведите радиус R: ");
         int radius = scan.nextInt();
 
-        double dia = radius * 2;
-        double lenDiag = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
+        double diagonale = radius * 2;
+        double diagonalLength = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
 
-        if (dia >= lenDiag) {
-            System.out.println("Круг радиусом " + radius + " закрывает прямоугольник со сторонами " + sideA + "  " + sideB + ", диаметр круга " + dia);
+        if (diagonale >= diagonalLength) {
+            System.out.println("Круг радиусом " + radius + " закрывает прямоугольник со сторонами " + sideA + "  " + sideB + ", диаметр круга " + diagonale);
         } else {
-            System.out.println("Круг радиусом " + radius + " не закрывает прямоугольник со сторонами " + sideA + "  " + sideB + ", диаметр круга " + dia);
+            System.out.println("Круг радиусом " + radius + " не закрывает прямоугольник со сторонами " + sideA + "  " + sideB + ", диаметр круга " + diagonale);
         }
-        System.out.println("Диагональ прямоугольника  = " + lenDiag);
+        System.out.println("Диагональ прямоугольника  = " + diagonalLength);
     }
 }

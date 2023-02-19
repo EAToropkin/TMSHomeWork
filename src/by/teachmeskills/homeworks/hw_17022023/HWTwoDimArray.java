@@ -11,11 +11,11 @@ public class HWTwoDimArray {
         System.out.println("Введите количество столбцов массива: ");
         int columns = scan.nextInt();
 
-        int[][] aMas = new int[rows][columns];
+        int[][] array = new int[rows][columns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                aMas[i][j] = ((int) (Math.random() * 12) - 15);
-                System.out.print(aMas[i][j] + " : ");
+                array[i][j] = ((int) (Math.random() * 12) - 15);
+                System.out.print(array[i][j] + " : ");
             }
             System.out.println();
         }
@@ -23,7 +23,7 @@ public class HWTwoDimArray {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
 
-                if (aMas[i][j] % 2 == 0) {
+                if (array[i][j] % 2 == 0) {
                     System.out.print(0);
                 } else {
                     System.out.print(1);
