@@ -11,7 +11,7 @@ public class HWLesson4Class {
         int sideA = scan.nextInt();
         System.out.println("Введите длину стороны Б: ");
         int sideB = scan.nextInt();
-        System.out.println("Ведите радиус R: ");
+        System.out.println("Ведите радиус круга R: ");
         int radius = scan.nextInt();
 
         double diagonale = radius * 2;

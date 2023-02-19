@@ -6,9 +6,9 @@ public class HWTwoDimArray {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("Введите количество строк массива: ");
+        System.out.println("Введите количество строк массива:");
         int rows = scan.nextInt();
-        System.out.println("Введите количество столбцов массива: ");
+        System.out.println("Введите количество столбцов массива:");
         int columns = scan.nextInt();
 
         int[][] array = new int[rows][columns];
@@ -19,7 +19,7 @@ public class HWTwoDimArray {
             }
             System.out.println();
         }
-        System.out.println("Результат (четные/нечетные): ");
+        System.out.println("Результат (четные/нечетные):");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
 
