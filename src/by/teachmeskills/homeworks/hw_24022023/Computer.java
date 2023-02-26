@@ -1,28 +1,30 @@
 package by.teachmeskills.homeworks.hw_24022023;
+
 public class Computer {
     private String processType;
-    private int amountRam;
-    private int amountDisc;
+    private int volumeRam;
+    private int discVolume;
 
     private boolean compStatus = true;
 
-    private void setCompStatus(boolean status)
-    {
+    private void setCompStatus(boolean status) {
         compStatus = status;
     }
 
-    private boolean getCompStatus()
-    {
+    private boolean getCompStatus() {
         return compStatus;
     }
+
     public String getProcessType() {
         return processType;
     }
-    public int getAmountRam() {
-        return amountRam;
+
+    public int getVolumeRam() {
+        return volumeRam;
     }
-    public int getAmountDisc() {
-        return amountDisc;
+
+    public int getDiscVolume() {
+        return discVolume;
     }
 
     private static boolean calcStatus(int num) {
@@ -42,7 +44,7 @@ public class Computer {
 
         if (calcStatus(num)) {
             System.out.println("Включили");
-        } else{
+        } else {
             System.out.println("Компьютер сгорел");
             setCompStatus(false);
         }
@@ -56,7 +58,7 @@ public class Computer {
 
         if (calcStatus(num)) {
             System.out.println("Выключили");
-        } else{
+        } else {
             System.out.println("Компьютер сгорел");
             setCompStatus(false);
         }

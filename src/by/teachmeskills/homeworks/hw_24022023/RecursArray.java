@@ -1,7 +1,10 @@
 package by.teachmeskills.homeworks.hw_24022023;
+
 public class RecursArray {
     public static int sumArray(int[] arrayCalc, int n) {
-        if (n == 0) return arrayCalc[0];
+        if (n == 0) {
+            return arrayCalc[0];
+        }
         return arrayCalc[n] + sumArray(arrayCalc, n - 1);
     }
 

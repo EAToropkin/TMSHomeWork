@@ -1,18 +1,19 @@
 package by.teachmeskills.homeworks.hw_24022023;
+
 import java.util.Scanner;
+
 public class RecursYesNo {
     public static int isDegree(int numFirst, int numSecond) {
         if (numFirst >= numSecond) {
             if (numFirst == numSecond) {
                 System.out.print("YES");
-                }
-            else {
+            } else {
                 System.out.print("NO");
-            };
+            }
             return numFirst;
         }
-            numFirst = numFirst * 2;
-            return isDegree(numFirst, numSecond);
+        numFirst = numFirst * 2;
+        return isDegree(numFirst, numSecond);
     }
 
     public static void main(String[] args) {
