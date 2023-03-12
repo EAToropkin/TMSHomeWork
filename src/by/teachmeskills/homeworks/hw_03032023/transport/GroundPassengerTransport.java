@@ -4,6 +4,13 @@ public class GroundPassengerTransport extends GroundTransport {
     private String carBody;
     private int countPassenger;
 
+    public GroundPassengerTransport(String brand, String carBody, int maxSpeed, int fuelConsume, int countPassenger) {
+        this.brand = brand;
+        this.carBody = carBody;
+        this.countPassenger = countPassenger;
+        this.maxSpeed = maxSpeed;
+        this.fuelConsume = fuelConsume;
+    }
 
     public String getCarBody() {
         return carBody;
@@ -21,13 +28,6 @@ public class GroundPassengerTransport extends GroundTransport {
         this.countPassenger = countPassenger;
     }
 
-    public GroundPassengerTransport(String brand, String carBody, int maxSpeed, int fuelConsume, int countPassenger) {
-        this.brand = brand;
-        this.carBody = carBody;
-        this.countPassenger = countPassenger;
-        this.maxSpeed = maxSpeed;
-        this.fuelConsume = fuelConsume;
-    }
 
     @Override
     protected String getSpecification() {

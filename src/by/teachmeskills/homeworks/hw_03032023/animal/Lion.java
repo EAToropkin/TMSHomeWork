@@ -7,9 +7,13 @@ public class Lion extends Feeline {
     }
 
     @Override
+    protected void eat() {
+        System.out.println("The lion eat " + food);
+    }
+
+    @Override
     public void makeNoise() {
         System.out.println("The lion riors");
-        ;
     }
 
     @Override

@@ -38,12 +38,13 @@ public abstract class Transport {
         this.brand = brand;
     }
 
+    private double getPowerKW(double powerLs) {
+        return powerLs * 0.74;
+    }
+
     protected String getSpecification() {
-        return "Марка " + brand + " Можщность: " + power + " Вес: " + weight + " Макс.скорость: " + maxSpeed + " Размах крыла ";
+        return "Марка " + brand + " Можщность: " + getPowerKW(power) + " Вес: " + weight + " Макс.скорость: " + maxSpeed + " Размах крыла ";
     }
 
-    private double getPowerKW() {
-        return power * 0.74;
-    }
 
-    }
+}

@@ -4,6 +4,11 @@ public class Calculator {
     private int fieldOne;
     private int fieldSecond;
 
+    public Calculator(int fieldOne, int fieldSecond) {
+        this.fieldOne = fieldOne;
+        this.fieldSecond = fieldSecond;
+    }
+
     public int getFieldOne() {
         return fieldOne;
     }
@@ -17,11 +22,6 @@ public class Calculator {
     }
 
     public void setFieldSecond(int fieldSecond) {
-        this.fieldSecond = fieldSecond;
-    }
-
-    public Calculator(int fieldOne, int fieldSecond) {
-        this.fieldOne = fieldOne;
         this.fieldSecond = fieldSecond;
     }
 

@@ -6,10 +6,12 @@ public class Hippo extends Animal {
     }
 
     @Override
-    public void makeNoise() {
-        System.out.println("The hippo grunts");
-        ;
+    protected void eat() {
+        System.out.println("The hippo eat "+food);
     }
 
-
+    @Override
+    public void makeNoise() {
+        System.out.println("The hippo grunts");
+    }
 }

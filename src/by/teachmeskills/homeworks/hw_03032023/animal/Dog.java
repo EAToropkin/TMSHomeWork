@@ -6,6 +6,11 @@ public class Dog extends Canine {
     }
 
     @Override
+    protected void eat() {
+        System.out.println("The dog eat "+food);
+    }
+
+    @Override
     public void makeNoise() {
         System.out.println("The dog barks");
     }

@@ -8,6 +8,5 @@ public abstract class Canine extends Animal {
     @Override
     protected void roam() {
         System.out.println(this.getClass().getSimpleName() + " run");
-        ;
     }
 }

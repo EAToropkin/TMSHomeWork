@@ -3,6 +3,16 @@ package by.teachmeskills.homeworks.hw_03032023.transport;
 public abstract class AirTransport extends Transport {
     protected int wingSpan;
 
+    protected int lenghTakeOff;
+
+    public void setLenghTakeOff(int lenghTakeOff) {
+        this.lenghTakeOff = lenghTakeOff;
+    }
+
+    public int getLenghTakeOff() {
+        return lenghTakeOff;
+    }
+
     public int getWingSpan() {
         return wingSpan;
     }

@@ -12,6 +12,11 @@ public class Tiger extends Feeline {
     }
 
     @Override
+    protected void eat() {
+        System.out.println("The tiger eat "+food);
+    }
+
+    @Override
     public void roam() {
         System.out.println("A tiger roams the taiga");
     }

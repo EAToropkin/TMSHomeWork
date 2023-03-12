@@ -7,6 +7,14 @@ public abstract class Animal {
     protected Boundaries boundaries;
     protected Location location;
 
+    public Animal(String picture, String food, boolean hunger, Boundaries boundaries, Location location) {
+        this.picture = picture;
+        this.food = food;
+        this.hunger = hunger;
+        this.boundaries = boundaries;
+        this.location = location;
+    }
+
     protected static class Location {
         private int x;
         private int y;
@@ -38,14 +46,6 @@ public abstract class Animal {
                     "Y=" + y +
                     "}";
         }
-    }
-
-    public Animal(String picture, String food, boolean hunger, Boundaries boundaries, Location location) {
-        this.picture = picture;
-        this.food = food;
-        this.hunger = hunger;
-        this.boundaries = boundaries;
-        this.location = location;
     }
 
     protected static class Boundaries {
@@ -83,15 +83,10 @@ public abstract class Animal {
     }
 
     protected abstract void makeNoise();
-
-    protected void eat(){
-        System.out.println(this.getClass().getSimpleName() + " eat " + food );
-    }
-
+    protected abstract void eat();
     protected void sleep() {
         System.out.println(this.getClass().getSimpleName() + " sleep");
     }
-
     protected void roam() {
         System.out.println(this.getClass().getSimpleName() + " roam");
     }
