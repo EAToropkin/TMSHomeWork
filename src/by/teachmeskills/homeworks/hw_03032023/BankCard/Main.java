@@ -46,7 +46,7 @@ public class Main {
             return date;
         }
 
-        private static boolean validateCard(String numCard, String kindCard, String FIO, String dateEnd, String svv) {
+        private static boolean validateCard(String numCard, String kindCard, String fulName, String dateEnd, String svv) {
             boolean checkVal = true;
             System.out.println("Запуск проверки карты № " + numCard);
 
@@ -57,7 +57,7 @@ public class Main {
                 System.out.println("Ошибка! Не указан номер карты");
                 checkVal = false;
             }
-            if (FIO.length() == 0) {
+            if (fulName.length() == 0) {
                 System.out.println("Ошибка! Не указан владелей карты");
                 checkVal = false;
             }
