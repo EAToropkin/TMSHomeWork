@@ -5,5 +5,7 @@ public abstract class Feeline extends Animal {
         super(picture, food, hunger, boundaries, location);
     }
     @Override
-    protected abstract void roam();
+    protected void roam() {
+        System.out.println(this.getClass().getSimpleName() + " roam");
+    }
 }

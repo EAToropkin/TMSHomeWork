@@ -8,7 +8,6 @@ public class Tiger extends Feeline {
     @Override
     protected void makeNoise() {
         System.out.println("The tiger roars");
-        ;
     }
 
     @Override

@@ -8,14 +8,13 @@ public class Cat extends Feeline {
 
     @Override
     protected void eat() {
-        System.out.println("The Cat eat "+food);
+        System.out.println("The Cat eat " + food);
     }
 
     @Override
     public void makeNoise() {
         System.out.println("The cat meows");
     }
-
 
     @Override
     protected void roam() {

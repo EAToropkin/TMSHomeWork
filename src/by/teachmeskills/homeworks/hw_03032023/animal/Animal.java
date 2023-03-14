@@ -3,6 +3,7 @@ package by.teachmeskills.homeworks.hw_03032023.animal;
 public abstract class Animal {
     protected String picture;
     protected String food;
+
     protected boolean hunger;
     protected Boundaries boundaries;
     protected Location location;
@@ -83,12 +84,14 @@ public abstract class Animal {
     }
 
     protected abstract void makeNoise();
+
     protected abstract void eat();
+
     protected void sleep() {
         System.out.println(this.getClass().getSimpleName() + " sleep");
     }
+
     protected void roam() {
         System.out.println(this.getClass().getSimpleName() + " roam");
     }
-
 }

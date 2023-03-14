@@ -7,94 +7,112 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     private static class CheckBankCard {
-        private static boolean isStrNumber(String str) {
+        private static boolean validateCard(String numCard, String kindCard, String fullName, String dateEnd, String cvv) {
 
-            if (str == null) {
-                return true;
-            }
+            class validateMethods {
 
-            if (str.length() == 0) {
-                return true;
-            }
+                private static boolean isCorrectNumber(String str) {
+                    if ((str == null) || (str.length() == 0)) {
+                        return false;
+                    }
+                    for (int i = 0; i < str.length(); i++) {
+                        char c = str.charAt(i);
+                        if (c < '0' || c > '9') {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
 
-            for (int i = 0; i < str.length(); i++) {
-                char c = str.charAt(i);
-                if (c < '0' || c > '9') {
+                private static boolean validateCardDate(String dateEnd) {
+                    LocalDate curDate = LocalDate.now();
+                    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
+                    try {
+                        new SimpleDateFormat("dd.MM.yyyy").parse(dateEnd);
+                    } catch (ParseException e) {
+                        System.out.println("    Ошибка! Некорректный формат даты");
+                        return false;
+                    }
+
+                    LocalDate date = LocalDate.parse(dateEnd, dateFormat);
+                    if (date.isBefore(curDate)) {
+                        System.out.println("    Ошибка! Срок действия карты (" + dateEnd + ") истек");
+                        return false;
+                    }
+                    return true;
+                }
+
+                private static boolean validateCardType(String kindCard) {
+                    String kindCards = "дебетовая,кредитная,платежная";
+                    if (!kindCards.contains(kindCard)) {
+                        System.out.println("    Ошибка! Вид карты может быть только " + kindCards);
+                        return false;
+                    }
+                    return true;
+                }
+
+                private static boolean validateCardNum(String numCard) {
+                    if (numCard.length() == 0) {
+                        System.out.println("    Ошибка! Не указан номер карты");
+                        return false;
+                    }
+                    if (!isCorrectNumber(numCard)) {
+                        System.out.println("    Ошибка! Номер карты должен содержать только числа");
+                        return false;
+                    }
+                    if ((numCard.length() < 13) || (numCard.length() > 19)) {
+                        System.out.println("    Ошибка! В номере карты должно быть от 13 до 19 цифр");
+                        return false;
+                    }
+                    return true;
+                }
+
+                private static boolean validateCardOwner(String fullName) {
+                    if (fullName.length() == 0) {
+                        System.out.println("    Ошибка! Не указан владелей карты");
+                        return false;
+                    }
+                    return true;
+                }
+
+                private static boolean validateCardCvv(String cvv) {
+                    if (cvv.length() != 3) {
+                        System.out.println("    Ошибка! Длина CVV кода превышает три символа");
+                        return false;
+                    }
+                    if (!isCorrectNumber(cvv)) {
+                        System.out.println("    Ошибка! CVV код должен содержать только числа");
+                        return false;
+                    }
                     return true;
                 }
             }
-            return false;
-        }
 
-        private static boolean isDate(String dateCard) {
-            try {
-                new SimpleDateFormat("dd.MM.yyyy").parse(dateCard);
-                return true;
-            } catch (ParseException e) {
-                return false;
-            }
-        }
-
-        private static LocalDate getDate(String stringDateCard) {
-
-            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-            LocalDate date = LocalDate.parse("01.01.1991", dateFormat);
-
-            if (isDate(stringDateCard)) {
-                date = LocalDate.parse(stringDateCard, dateFormat);
-            }
-            return date;
-        }
-
-        private static boolean validateCard(String numCard, String kindCard, String fulName, String dateEnd, String svv) {
             boolean checkVal = true;
             System.out.println("Запуск проверки карты № " + numCard);
 
-            LocalDate curDate = LocalDate.now();
-            String kindCards = "дебетовая,кредитная,платежная";
-
-            if (numCard.length() == 0) {
-                System.out.println("Ошибка! Не указан номер карты");
+            // сделал отдельно вызов каждого метода чтобы было видно все ошибки
+            if (!validateMethods.validateCardNum(numCard)) {
                 checkVal = false;
             }
-            if (fulName.length() == 0) {
-                System.out.println("Ошибка! Не указан владелей карты");
+            if (!validateMethods.validateCardDate(dateEnd)) {
                 checkVal = false;
             }
-            if (!isDate(dateEnd)) {
-                System.out.println("Ошибка! Некорректный формат даты");
+            if (!validateMethods.validateCardType(kindCard)) {
                 checkVal = false;
-            } else {
-                if (getDate(dateEnd).isBefore(curDate)) {
-                    System.out.println("Ошибка! Срок действия карты истек");
-                    checkVal = false;
-                }
+            }
+            if (!validateMethods.validateCardOwner(fullName)) {
+                checkVal = false;
+            }
+            if (!validateMethods.validateCardCvv(cvv)) {
+                checkVal = false;
             }
 
-            if (svv.length() != 3) {
-                System.out.println("Ошибка! Длина CVV кода превышает три символа");
-                checkVal = false;
-            }
-            if (isStrNumber(svv)) {
-                System.out.println("Ошибка! CVV код должен содержать только числа");
-                checkVal = false;
-            }
-            if (isStrNumber(numCard)) {
-                System.out.println("Ошибка! Номер карты должен содержать только числа");
-                checkVal = false;
-            }
-            if (numCard.length() < 13) {
-                System.out.println("Ошибка! Номер в номере карты может быть от 13 до 19 цифр");
-                checkVal = false;
-            }
-            if (!kindCards.contains(kindCard)) {
-                System.out.println("Ошибка! Вид карты может быть только " + kindCards);
-                checkVal = false;
-            }
             if (checkVal) {
-            System.out.println("Реквизиты карты " + numCard +" прошли проверку");
+                System.out.println("Реквизиты карты № " + numCard + " прошли проверку");
             } else {
-                System.out.println("Реквизиты карты " + numCard +" не прошли проверку");
+                System.out.println("Ошибка!!! Реквизиты карты № " + numCard + " не прошли проверку");
             }
 
             return checkVal;
