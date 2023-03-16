@@ -84,7 +84,7 @@ public class Card {
             }
 
             private static boolean validateCardNum(String numCard) {
-                if (numCard.length() == 0) {
+                if (numCard.isEmpty()) {
                     System.out.println("    Ошибка! Не указан номер карты");
                     return false;
                 }
@@ -100,7 +100,7 @@ public class Card {
             }
 
             private static boolean validateCardOwner(String fullName) {
-                if (fullName.length() == 0) {
+                if (fullName.isEmpty()) {
                     System.out.println("    Ошибка! Не указан владелей карты");
                     return false;
                 }
