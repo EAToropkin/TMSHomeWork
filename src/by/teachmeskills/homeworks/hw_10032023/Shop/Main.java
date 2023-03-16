@@ -9,9 +9,9 @@ public class Main {
 
         Shop shop = new Shop("Десяточка");
 
-        shop.addProduct(new Shop.Products(123, "Гречка", 60));
-        shop.addProduct(new Shop.Products(456, "Рис", 80));
-        shop.addProduct(new Shop.Products(77, "Хлеб", 20));
+        shop.addProduct(new Products(123, "Гречка", 60));
+        shop.addProduct(new Products(456, "Рис", 80));
+        shop.addProduct(new Products(77, "Хлеб", 20));
 
         shop.getAllProduct();
         shop.sortProduct();
@@ -21,7 +21,7 @@ public class Main {
         System.out.println("После удаления");
         shop.getAllProduct();
 
-        shop.editProduct(new Shop.Products(123, "Батон", 80));
+        shop.editProduct(new Products(123, "Батон", 80));
         System.out.println("После редактирования");
         shop.getAllProduct();
     }

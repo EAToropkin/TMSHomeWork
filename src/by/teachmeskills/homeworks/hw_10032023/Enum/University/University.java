@@ -5,10 +5,10 @@ public class University {
     private int countStudent;
     private Season currentSeason;
 
-    public University(String nameUniversity, int countStudent, SeasonRus currentSeasonRus) {
+    public University(String nameUniversity, int countStudent, Season currentSeason) {
         this.nameUniversity = nameUniversity;
         this.countStudent = countStudent;
-        this.currentSeason = getSeason(currentSeasonRus);
+        this.currentSeason = currentSeason;
     }
 
     public String getNameUniversity() {
@@ -35,7 +35,5 @@ public class University {
         this.currentSeason = currentSeason;
     }
 
-    private static Season getSeason(SeasonRus season) {
-        return Season.values()[season.ordinal()];
-    }
+
 }
