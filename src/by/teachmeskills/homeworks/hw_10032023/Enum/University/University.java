@@ -2,12 +2,12 @@ package by.teachmeskills.homeworks.hw_10032023.Enum.University;
 
 public class University {
     private String nameUniversity;
-    private int countStudent;
+    private int studentsCount;
     private Season currentSeason;
 
-    public University(String nameUniversity, int countStudent, Season currentSeason) {
+    public University(String nameUniversity, int studentsCount, Season currentSeason) {
         this.nameUniversity = nameUniversity;
-        this.countStudent = countStudent;
+        this.studentsCount = studentsCount;
         this.currentSeason = currentSeason;
     }
 
@@ -19,12 +19,12 @@ public class University {
         this.nameUniversity = nameUniversity;
     }
 
-    public int getCountStudent() {
-        return countStudent;
+    public int getStudentsCount() {
+        return studentsCount;
     }
 
-    public void setCountStudent(int countStudent) {
-        this.countStudent = countStudent;
+    public void setStudentsCount(int studentsCount) {
+        this.studentsCount = studentsCount;
     }
 
     public Season getCurrentSeason() {

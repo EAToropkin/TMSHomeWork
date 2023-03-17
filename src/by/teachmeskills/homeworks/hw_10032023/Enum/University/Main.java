@@ -4,7 +4,7 @@ public class Main {
 
     private static String getInfo(University university) {
         return university.getNameUniversity()
-                + ", учащихся " + university.getCountStudent()
+                + ", учащихся " + university.getStudentsCount()
                 + ", сейчас мы " + university.getCurrentSeason().getStatusWork();
     }
 

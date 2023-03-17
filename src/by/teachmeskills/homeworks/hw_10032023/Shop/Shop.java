@@ -5,27 +5,26 @@ import by.teachmeskills.homeworks.hw_10032023.Shop.exceptions.EntityAlreadyExist
 import by.teachmeskills.homeworks.hw_10032023.Shop.exceptions.EntityNotFoundException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Shop {
     private String nameShop;
-    private static List<Products> listProducts;
+    private List<Product> listProducts;
 
     public Shop(String nameShop) {
         this.nameShop = nameShop;
         this.listProducts = new ArrayList<>();
     }
 
-    public static void checkIsEmpty() throws EmptyProductListException {
+    public void checkIsEmpty() throws EmptyProductListException {
         if (listProducts.isEmpty()) {
             throw new EmptyProductListException("No products found");
         }
     }
 
-    public static void addProduct(Products product) throws EntityAlreadyExistsException {
+    public void addProduct(Product product) throws EntityAlreadyExistsException {
         for (int i = 0; i < listProducts.size(); i++) {
-            Products item = listProducts.get(i);
+            Product item = listProducts.get(i);
             if (item.getProductId() == product.getProductId()) {
                 throw new EntityAlreadyExistsException("The product exists");
             }
@@ -33,16 +32,16 @@ public class Shop {
         listProducts.add(product);
     }
 
-    public static void getAllProduct() throws EmptyProductListException {
+    public void getAllProduct() throws EmptyProductListException {
         checkIsEmpty();
         listProducts.forEach((item) -> System.out.println("Product id " + item.getProductId() + ", name " + item.getName() + ", price " + item.getPrice()));
     }
 
-    public static void deleteProduct(int idProduct) throws EmptyProductListException, EntityNotFoundException {
+    public void deleteProduct(int idProduct) throws EmptyProductListException, EntityNotFoundException {
         checkIsEmpty();
 
         for (int i = 0; i < listProducts.size(); i++) {
-            Products item = listProducts.get(i);
+            Product item = listProducts.get(i);
             if (item.getProductId() == idProduct) {
                 listProducts.remove(i);
                 return;
@@ -51,10 +50,10 @@ public class Shop {
         throw new EntityNotFoundException("Product with id " + idProduct + " not found");
     }
 
-    public static void editProduct(Products product) throws EmptyProductListException, EntityNotFoundException {
+    public void editProduct(Product product) throws EmptyProductListException, EntityNotFoundException {
         checkIsEmpty();
         for (int i = 0; i < listProducts.size(); i++) {
-            Products item = listProducts.get(i);
+            Product item = listProducts.get(i);
             if (item.getProductId() == product.getProductId()) {
                 listProducts.set(i, product);
                 return;
@@ -63,12 +62,12 @@ public class Shop {
         throw new EntityNotFoundException("Product with id " + product.getProductId() + " not found");
     }
 
-    public static void sortProduct() throws EmptyProductListException {
+    public void sortProduct() throws EmptyProductListException {
         checkIsEmpty();
         boolean isSorted = false;
-        Products itemFirst;
-        Products itemNext;
-        Products itemTmp;
+        Product itemFirst;
+        Product itemNext;
+        Product itemTmp;
 
         while (!isSorted) {
             isSorted = true;

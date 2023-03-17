@@ -10,7 +10,7 @@ public enum Season {
     }
 
     public String getStatusWork() {
-        if (this.seasonRus == "Лето") {
+        if (seasonRus == "Лето") {
             return "отдыхаем";
         } else {
             return "работаем";
