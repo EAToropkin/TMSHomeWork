@@ -1,22 +1,22 @@
 package by.teachmeskills.homeworks.hw_10032023.Enum.University;
 
 public class University {
-    private String nameUniversity;
+    private String universityName;
     private int studentsCount;
     private Season currentSeason;
 
-    public University(String nameUniversity, int studentsCount, Season currentSeason) {
-        this.nameUniversity = nameUniversity;
+    public University(String universityName, int studentsCount, Season currentSeason) {
+        this.universityName = universityName;
         this.studentsCount = studentsCount;
         this.currentSeason = currentSeason;
     }
 
-    public String getNameUniversity() {
-        return nameUniversity;
+    public String getUniversityName() {
+        return universityName;
     }
 
-    public void setNameUniversity(String nameUniversity) {
-        this.nameUniversity = nameUniversity;
+    public void setUniversityName(String universityName) {
+        this.universityName = universityName;
     }
 
     public int getStudentsCount() {

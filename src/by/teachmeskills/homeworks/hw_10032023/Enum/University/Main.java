@@ -3,7 +3,7 @@ package by.teachmeskills.homeworks.hw_10032023.Enum.University;
 public class Main {
 
     private static String getInfo(University university) {
-        return university.getNameUniversity()
+        return university.getUniversityName()
                 + ", учащихся " + university.getStudentsCount()
                 + ", сейчас мы " + university.getCurrentSeason().getStatusWork();
     }
