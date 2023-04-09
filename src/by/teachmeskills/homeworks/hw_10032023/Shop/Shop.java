@@ -11,7 +11,7 @@ public class Shop {
     private String nameShop;
     private List<Product> listProducts;
 
-    public Shop(String nameShop) {
+    private Shop(String nameShop) {
         this.nameShop = nameShop;
         this.listProducts = new ArrayList<>();
     }

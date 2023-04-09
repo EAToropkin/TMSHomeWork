@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) throws EmptyProductListException, EntityAlreadyExistsException, EntityNotFoundException {
+    public static void main(String[] args) {
 
         Shop shop = new Shop("Десяточка");
 
