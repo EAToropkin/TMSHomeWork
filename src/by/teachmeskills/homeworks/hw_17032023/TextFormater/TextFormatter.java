@@ -1,6 +1,10 @@
 package by.teachmeskills.homeworks.hw_17032023.TextFormater;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static by.teachmeskills.homeworks.hw_17032023.Palindrome.Main.isPalindrome;
@@ -52,6 +56,7 @@ public class TextFormatter {
 
                 String[] sentenceArr = line.split("\\.");
                 for (String sentence : sentenceArr) {
+                    sentence = sentence.trim();
                     int cntWord = getCountWord(sentence);
                     if ((isFindPalindrome(sentence)) || ((cntWord >= 3) && (cntWord <= 5))) {
                         arrayList.add(sentence);
@@ -63,22 +68,12 @@ public class TextFormatter {
         }
 
         if (arrayList.size() != 0) {
-            try {
-                File fileWrite = new File(this.filePathTo);
-
-                if (!fileWrite.exists()) {
-                    fileWrite.createNewFile();
-                }
-
-                FileWriter fw = new FileWriter(fileWrite, true);
-
-                BufferedWriter bw = new BufferedWriter(fw);
+            try (FileOutputStream fileTo = new FileOutputStream(this.filePathTo, false)) {
                 for (int i = 0; i < arrayList.size(); i++) {
-                    String str = arrayList.get(i);
-                    bw.write(str);
-                    bw.write("\n");
+                    String str = arrayList.get(i) + "\n";
+                    fileTo.write(str.getBytes());
                 }
-                bw.close();
+                fileTo.close();
             } catch (IOException ioe) {
                 System.out.println("Ошибка при записи файла:");
                 ioe.printStackTrace();

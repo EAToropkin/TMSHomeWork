@@ -1,6 +1,12 @@
 package by.teachmeskills.homeworks.hw_17032023.Palindrome;
+import static by.teachmeskills.homeworks.hw_17032023.FilePaths.fileTestPath;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -23,7 +29,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        File fileRead = new File("C:/TM_Java_Lesson/FileTest/Text.txt");
+        String fileReadName = fileTestPath + "Text.txt";
+        String fileWriteName = fileTestPath + "TextWrite.txt";
+
+        File fileRead = new File(fileReadName);
         ArrayList<String> arrayList = new ArrayList<>();
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileRead))) {
@@ -40,7 +49,7 @@ public class Main {
 
         if (arrayList.size() != 0) {
             try {
-                File fileWrite = new File("C:/TM_Java_Lesson/FileTest/TextWrite.txt");
+                File fileWrite = new File(fileWriteName);
 
                 if (!fileWrite.exists()) {
                     fileWrite.createNewFile();
