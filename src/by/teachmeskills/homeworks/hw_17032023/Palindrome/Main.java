@@ -1,4 +1,5 @@
 package by.teachmeskills.homeworks.hw_17032023.Palindrome;
+
 import static by.teachmeskills.homeworks.hw_17032023.FilePaths.fileTestPath;
 
 import java.io.BufferedReader;
@@ -56,15 +57,16 @@ public class Main {
                 }
 
                 FileWriter fw = new FileWriter(fileWrite, true);
-
                 System.out.println("Слова палиндромы:");
-                BufferedWriter bw = new BufferedWriter(fw);
-                for (int i = 0; i < arrayList.size(); i++) {
-                    String str = arrayList.get(i);
-                    bw.write(str);
-                    System.out.println(str);
+                try (BufferedWriter bw = new BufferedWriter(fw)) {
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        String str = arrayList.get(i);
+                        bw.write(str);
+                        System.out.println(str);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Ошибка: " + e.getMessage());
                 }
-                bw.close();
             } catch (IOException ioe) {
                 System.out.println("Ошибка при записи файла:");
                 ioe.printStackTrace();

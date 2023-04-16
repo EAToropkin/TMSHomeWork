@@ -17,23 +17,17 @@ public class Main {
         String fileName = fileTestPath + "Serialize.txt";
         Automobile autoToyota = new Automobile("Toyota", 180, 3200000);
 
-        try (FileOutputStream outputStream = new FileOutputStream(fileName);) {
-            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)) {
-                objectOutputStream.writeObject(autoToyota);
-            } catch (IOException e) {
-                System.out.println("Ошибка: " + e.getMessage());
-            }
+        try (FileOutputStream outputStream = new FileOutputStream(fileName);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);) {
+            objectOutputStream.writeObject(autoToyota);
         } catch (IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
 
-        try (FileInputStream fileInputStream = new FileInputStream(fileName)) {
-            try (ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
-                Automobile auto = (Automobile) objectInputStream.readObject();
-                System.out.println(auto);
-            } catch (IOException e) {
-                System.out.println("Ошибка: " + e.getMessage());
-            }
+        try (FileInputStream fileInputStream = new FileInputStream(fileName);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+            Automobile auto = (Automobile) objectInputStream.readObject();
+            System.out.println(auto);
         } catch (IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
