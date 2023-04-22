@@ -1,50 +1,35 @@
 package by.teachmeskills.homeworks.hw_31032023.Calculator;
 
-public class Calculator {
-    private double fieldOne;
-    private double fieldSecond;
+public class Calculator <N extends Number> {
 
-    public Calculator(double fieldOne, double fieldSecond) {
-        this.fieldOne = fieldOne;
-        this.fieldSecond = fieldSecond;
+    private N var1;
+    private N var2;
+
+    public Calculator(N var1, N var2) {
+        this.var1 = var1;
+        this.var2 = var2;
     }
 
-    private static <N extends Number> double summa(N a, N b) {
-        return a.doubleValue() + b.doubleValue();
+    public <N extends Number> void getSumma() {
+        System.out.println(var1.doubleValue() + var2.doubleValue());
     }
 
-    private static <N extends Number> double diff(N a, N b) {
-
-        return a.doubleValue() - b.doubleValue();
+    public  <N extends Number> void getDifference() {
+        System.out.println(var1.doubleValue() - var2.doubleValue());
     }
 
-    private static <N extends Number> double mult(N a, N b) {
-        return a.doubleValue() * b.doubleValue();
+    public  <N extends Number> void getMultiplication() {
+        System.out.println(var1.doubleValue() * var2.doubleValue());
     }
 
-    private static <N extends Number> double div(N a, N b) {
+    public  <N extends Number> void getDivision() {
 
+        double res = 0;
         try {
-            return a.doubleValue() / b.doubleValue();
+            res = var1.doubleValue() / var2.doubleValue();
         } catch (ArithmeticException e) {
             System.out.println("Ошибка!!! На ноль делить нельзя");
         }
-        return 0;
-    }
-
-    public void getSumma() {
-        System.out.println(summa(this.fieldOne, this.fieldSecond));
-    }
-
-    public void getDifference() {
-        System.out.println(diff(this.fieldOne, this.fieldSecond));
-    }
-
-    public void getMultiplication() {
-        System.out.println(mult(this.fieldOne, this.fieldSecond));
-    }
-
-    public void getDivision() {
-        System.out.println(mult(this.fieldOne, this.fieldSecond));
+        System.out.println(res);
     }
 }

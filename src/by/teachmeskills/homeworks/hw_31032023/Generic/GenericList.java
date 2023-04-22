@@ -2,17 +2,17 @@ package by.teachmeskills.homeworks.hw_31032023.Generic;
 
 import java.util.Arrays;
 
-public class Generic<T> {
+public class GenericList<T> {
     final static int defaultSize = 10;
     private int sizeArray;
     private T[] array;
 
-    public Generic(int size) {
+    public GenericList(int size) {
         array = (T[]) new Object[size];
         sizeArray = size;
     }
 
-    public Generic() {
+    public GenericList() {
         array = (T[]) new Object[defaultSize];
         sizeArray = defaultSize;
     }
