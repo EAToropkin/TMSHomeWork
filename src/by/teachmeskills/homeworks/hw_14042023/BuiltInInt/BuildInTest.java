@@ -4,17 +4,14 @@ import java.util.function.Predicate;
 
 public class BuildInTest {
     public static void main(String[] args) {
-        Predicate<String> pred;
-        pred = (value) -> !(value.isEmpty());
+        Predicate<String> pred = (value) -> !(value.isEmpty());
 
-        Predicate<String> predLambdaChk;
-        predLambdaChk = (value) -> {
-            boolean res;
+        Predicate<String> predLambdaChk = (value) -> {
+            boolean res = true;
             if (value.isEmpty() || value.isBlank()) {
                 res = false;
-            } else {
-                res = true;
             }
+
             return res;
         };
 

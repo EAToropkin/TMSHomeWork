@@ -15,22 +15,36 @@ import java.util.Scanner;
 
 public final class RegistrationUtils {
 
+    private boolean validateStringField(String str) {
+        if (str.isEmpty() || str.trim() == "") {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateBirthDate(String birthDate) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        try {
+            Date parseDate = simpleDateFormat.parse(birthDate);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
+
     private boolean validateData(DiscountCard discountCard) {
 
-        if (discountCard.getFio().isEmpty() || discountCard.getFio().trim() == "") {
+        if (!validateStringField(discountCard.getFio())) {
             System.out.println("Ошибка! Не указано ФИО клиента");
             return false;
         }
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
-        try {
-            Date parseDate = simpleDateFormat.parse(discountCard.getBirthDate());
-        } catch (ParseException e) {
+        if (!validateBirthDate(discountCard.getBirthDate())) {
             System.out.println("Ошибка! Некорректно указана Дата рождения " + discountCard.getBirthDate() + ". Должна быть в формате yyyy-mm-dd");
             return false;
         }
 
-        if (discountCard.getGender().isEmpty() || discountCard.getGender().trim() == "") {
+        if (!validateStringField(discountCard.getGender())) {
             System.out.println("Ошибка! Не указан пол клиента");
             return false;
         }
